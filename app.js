@@ -1,4 +1,6 @@
-
+const userSide = document.querySelector('.user-side');
+const computerSide = document.querySelector('.computer-side');
+const userScore = document.querySelector('user-score');
 
 
 // random computer choice
@@ -11,11 +13,20 @@ const getComputerChoice = () => {
 }
 
 
-// game logic
-const playRound = () => {
-    const computerSelection = getComputerChoice();
-    const userSelection = prompt("Rock, Paper or Scissors?")
-    if (computerSelection === userSelection){
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+if (computerSelection === userSelection){
         console.log("Tie");
     }else if (userSelection.toLowerCase() === "rock" && computerSelection === "scissors"){
         console.log("User wins");
@@ -26,22 +37,4 @@ const playRound = () => {
     }else{
         console.log("Computer wins")
     }
-    console.log(computerSelection);
-}
-
-
-const game = () => {
-    for (let i = 0; i < 5; i++){
-        getComputerChoice();
-        playRound()
-    }
-}
-
-game();
-
-
-
-
-
-
-
+*/
