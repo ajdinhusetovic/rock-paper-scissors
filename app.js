@@ -5,7 +5,7 @@ const buttons = document.querySelectorAll('.btn');
 const computerPick = document.querySelector('#computer-pick');
 let userPick = document.querySelector('#user-pick');
 const computerScore = document.querySelector('#computer-score');
-const whoWon = document.querySelector('#win');
+const whoWon = document.querySelector('#who-won');
 
 let userSelection;
 let uScore = 0;
@@ -19,12 +19,14 @@ const getComputerChoice = () => {
     return computerChoices[rand];
 }
 
+// resets score
 const resetScore = () => {
     uScore = 0;
     cScore = 0;
     roundNum = 0;
 }
 
+// main logic
 buttons.forEach ((btn) => {
     btn.addEventListener('click', () => {
         const computerSelection = getComputerChoice();
@@ -54,33 +56,11 @@ buttons.forEach ((btn) => {
         console.log(roundNum);
         if (uScore >= 5){
             resetScore();
-            whoWon.textContent = "User wins game";
+            whoWon.textContent = "User wins game! CONGRATS";
         }else if (cScore >= 5){
             resetScore()
-            whoWon.textContent = "Computer wins game"
+            whoWon.textContent = "Computer wins game! CONGRATS"
+            whoWon.style = "color: gold;"
         }
     })
 });
-
-
-
-
-
-
-
-
-
-
-/*
-if (computerSelection === userSelection){
-        console.log("Tie");
-    }else if (userSelection.toLowerCase() === "rock" && computerSelection === "scissors"){
-        console.log("User wins");
-    }else if (userSelection.toLowerCase() === "scissors" && computerSelection === "paper"){
-        console.log("User wins");
-    }else if (userSelection.toLowerCase() === "paper" && computerSelection === "rock"){
-        console.log("User wins")
-    }else{
-        console.log("Computer wins")
-    }
-*/
