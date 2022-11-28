@@ -10,6 +10,7 @@ const whoWon = document.querySelector('#win');
 let userSelection;
 let uScore = 0;
 let cScore = 0;
+let roundNum = 0;
 
 // random computer choice
 const getComputerChoice = () => {
@@ -18,6 +19,11 @@ const getComputerChoice = () => {
     return computerChoices[rand];
 }
 
+const resetScore = () => {
+    uScore = 0;
+    cScore = 0;
+    roundNum = 0;
+}
 
 buttons.forEach ((btn) => {
     btn.addEventListener('click', () => {
@@ -43,6 +49,15 @@ buttons.forEach ((btn) => {
         }else{
             computerScore.textContent = `COMPUTER: ${++cScore}`;
             whoWon.textContent = "Computer wins this round"
+        }
+        roundNum++;
+        console.log(roundNum);
+        if (uScore >= 5){
+            resetScore();
+            whoWon.textContent = "User wins game";
+        }else if (cScore >= 5){
+            resetScore()
+            whoWon.textContent = "Computer wins game"
         }
     })
 });
