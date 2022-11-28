@@ -1,18 +1,30 @@
 const userSide = document.querySelector('.user-side');
 const computerSide = document.querySelector('.computer-side');
 const userScore = document.querySelector('user-score');
-
+const buttons = document.querySelectorAll('.btn');
+const computerPick = document.querySelector('#computer-pick');
+let userPick = document.querySelector('#user-pick');
 
 // random computer choice
 const getComputerChoice = () => {
-    for (let i = 0; i < 5; i++){
-        const computerChoices = ["rock", "paper", "scissors"];
-        const rand = Math.floor(Math.random()*computerChoices.length);
-        return computerChoices[rand];
-    }
+    const computerChoices = ["Rock", "Paper", "Scissors"];
+    const rand = Math.floor(Math.random()*computerChoices.length);
+    return computerChoices[rand];
 }
 
 
+let userSelection;
+
+buttons.forEach ((btn) => {
+    btn.addEventListener('click', () => {
+        const computerSelection = getComputerChoice();
+        if (btn.textContent.toLowerCase() === "rock" || btn.textContent.toLowerCase() === "paper" || btn.textContent.toLowerCase() === "scissors" ){
+            userSelection = btn.textContent;
+        }
+        userPick.textContent = userSelection;
+        computerPick.textContent = computerSelection;
+    })
+})
 
 
 
